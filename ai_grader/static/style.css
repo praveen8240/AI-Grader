@@ -1,0 +1,140 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+textarea, input[type="number"], input[type="text"] { /* Assuming text input might be added later */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for width: 100% */
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+#results-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* For general error messages displayed by JS that might not be in evaluation-errors div directly */
+.error-message { 
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Specifically for errors listed under the evaluation-errors div */
+#evaluation-errors .error-detail, #evaluation-errors p { /* Target both p and any other specific error detail elements */
+    color: red; /* Ensure this is distinct if needed from general .error-message */
+    margin-bottom: 5px; /* Spacing for individual error lines */
+}
+#evaluation-errors p.error-message { /* If .error-message is used inside #evaluation-errors */
+    font-weight: bold; /* Keep it bold */
+}
+
+
+#teacher-review-flag {
+    color: #d9534f; /* A Bootstrap 'danger' like color */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#sub-scores-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#sub-scores-details li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+#sub-scores-details li strong {
+    color: #0056b3; /* Darker blue for criterion name */
+    font-size: 1.1em;
+}
+
+#sub-scores-details li .feedback-text {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+    padding-left: 15px; /* Indent feedback slightly */
+}
+
+
+/* Progress bar styling from script.js */
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 12px; /* Slightly taller for better visibility */
+    margin-top: 8px;
+    margin-bottom: 8px; /* Add some space below the progress bar */
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff; /* Align with button color for consistency */
+    border-radius: 4px;
+    /* Text inside progress bar can be added if needed, but often kept clean */
+    /* line-height: 12px; */ /* Match height if text is added */
+    /* color: white; */
+    /* font-size: 9px; */
+    transition: width 0.3s ease-in-out; /* Smooth transition for width changes */
+}

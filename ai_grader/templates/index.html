@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Response Grader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Student Response Grader</h1>
+    
+    <form id="grader-form">
+        <div>
+            <label for="question_text">Question Text:</label><br>
+            <textarea id="question_text" name="question_text" rows="3" cols="80" required placeholder="Enter the question posed to the student..."></textarea>
+        </div>
+        
+        <div>
+            <label for="student_answer">Student Answer:</label><br>
+            <textarea id="student_answer" name="student_answer" rows="8" cols="80" required placeholder="Enter the student's answer here..."></textarea>
+        </div>
+        
+        <div>
+            <label for="reference_answer">Reference Answer (Optional):</label><br>
+            <textarea id="reference_answer" name="reference_answer" rows="8" cols="80" placeholder="Enter the ideal or model answer for comparison..."></textarea>
+        </div>
+        
+        <div>
+            <label for="min_words">Minimum Words (Optional):</label><br>
+            <input type="number" id="min_words" name="min_words" min="0" placeholder="e.g., 50">
+        </div>
+        
+        <div>
+            <label for="max_words">Maximum Words (Optional):</label><br>
+            <input type="number" id="max_words" name="max_words" min="0" placeholder="e.g., 150">
+        </div>
+        
+        <button type="submit">Evaluate Answer</button>
+    </form>
+
+    <hr>
+
+    <h2>Evaluation Results</h2>
+    <div id="results-container" style="display:none;"> <!-- Initially hidden, JS will show it -->
+        <h3>Overall Score: <span id="total-score">N/A</span></h3>
+        
+        <div id="teacher-review-flag" style="color:red; font-weight:bold;">
+            <!-- Populated by JS if review is needed -->
+        </div>
+        <div id="evaluation-errors" style="color:red; margin-top:5px;">
+            <!-- Detailed errors populated by JS -->
+        </div>
+        
+        <h4>Overall Feedback:</h4>
+        <p id="overall-feedback">N/A</p>
+        
+        <h4>Detailed Sub-scores:</h4>
+        <div id="sub-scores-details">
+            <!-- Sub-scores will be populated here by JavaScript as a list or table -->
+            <p>Details will appear here.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
