@@ -109,9 +109,13 @@ def evaluate_answer():
         logging.error(f"An unexpected error occurred during evaluation: {e}", exc_info=True)
         return jsonify({"error": "An unexpected error occurred on the server."}), 500
 
-# 5. Main Block for Development Server
+# 5. Main Block for Development and Deployment Server
 if __name__ == '__main__':
-    # Note: Setting host='0.0.0.0' makes the server accessible externally.
-    # For development, '127.0.0.1' (default) is often preferred for security.
-    # Using 0.0.0.0 as requested.
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    import os
+
+    # Render provides a PORT environment variable; default to 5000 for local dev
+    port = int(os.environ.get("PORT", 5000))
+
+    # Use '0.0.0.0' to allow external access (required by Render)
+    app.run(host='0.0.0.0', port=port, debug=True)
+
